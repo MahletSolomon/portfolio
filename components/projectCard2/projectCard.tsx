@@ -4,19 +4,24 @@ import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
 interface Project {
-  image: StaticImageData[];
+  image: StaticImageData;
   description: string;
   title: string;
   tags: string[];
 }
 
-const ProjectCard2: React.FC<Project> = ({ image, description, title }) => {
-  const tags = ["MySQL", "React.js", "Socket.io"];
+const ProjectCard2: React.FC<Project> = ({ image, description, title, tags }) => {
+  
   const [expanded, setExpanded] = useState(false);
+
+  const openProject = () => {
+
+  }
+
   return (
     <div className="w-[623px] h-[380px] grid grid-rows-[auto_1fr_auto] space-y-6  border border[#AEAEAE] hover:cursor-pointer hover:shadow-md">
       <div className="w-full h-24">
-        <Image src={image[0]} alt="imge" className="h-full object-cover" />
+        <Image src={image} alt="imge" className="h-full object-cover" />
       </div>
 
       {!expanded && (

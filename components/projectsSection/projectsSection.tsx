@@ -10,7 +10,7 @@ import img7 from './ll.png'
 import ProjectCard from '../projectCard/projectCard'
 import ProjectCard2 from '../projectCard2/projectCard'
 
-const ProjectsWindow = () => {
+const ProjectSection = () => {
 
     const projects = [
       {
@@ -44,7 +44,7 @@ const ProjectsWindow = () => {
         <div className='flex flex-col space-y-8 justify-center items-center '>
             {projects.map((p)=>{
                 return(
-                    <ProjectCard
+                    <ProjectCard2
                     key={p.id}
                     image={p.images[0]}
                     description={p.description}
@@ -59,4 +59,4 @@ const ProjectsWindow = () => {
   )
 }
 
-export default ProjectsWindow
+export default ProjectSection

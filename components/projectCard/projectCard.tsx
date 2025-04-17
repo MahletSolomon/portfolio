@@ -4,7 +4,6 @@ import Image, { StaticImageData } from "next/image";
 import Tags from "../tags/tags";
 
 
-
 interface Project {
   image:StaticImageData;
   description:string;
