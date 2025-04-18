@@ -19,3 +19,29 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Fade-in scrollbar when hovered */
+.scrollbar-fade {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0) transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+/* Chrome, Edge, Safari */
+.scrollbar-fade::-webkit-scrollbar {
+  width: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.scrollbar-fade::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 6px;
+}
+
+.scrollbar-fade:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.scrollbar-fade:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
