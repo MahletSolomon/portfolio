@@ -3,10 +3,11 @@ import React, { useState } from "react";
 
 interface TagsList {
     tags: string[];
+    expandable: boolean;
 }
 
-const Tags:React.FC<TagsList> = ({tags}) => {
-  const [expanded, setExpanded] = useState(true);
+const Tags:React.FC<TagsList> = ({tags, expandable=false}) => {
+  const [expanded, setExpanded] = useState(expandable);
 
 
   const toggleExpanded = () => {
@@ -14,26 +15,28 @@ const Tags:React.FC<TagsList> = ({tags}) => {
   }
 
   return (
-    <div className="w-full px-8 py-4 relative">
-      <div className=" flex justify-between items-center">
-        <div
-          className={`flex flex-wrap gap-y-2 gap-x-4 overflow-hidden transition-all duration-300 ${
-            expanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          {tags.map((t, index) => (
-            <div
-              key={index}
-              className="h-fit px-5 border border-[#d9d9d9] shrink-0 whitespace-nowrap"
-            >
-              <p className="text-[#dddddd] text-[11px]">{t}</p>
-            </div>
-          ))}
-        </div>
+    <div className="w-full h-full ">
+      <div className=" flex h-full justify-between items-center">
+        {expanded && (
+          <div
+            className={`flex flex-wrap gap-x-4 overflow-hidden transition-all duration-300  ${
+              expanded ? " opacity-100" : "opacity-0"
+            }`}
+          >
+            {tags.map((t, index) => (
+              <div
+                key={index}
+                className="h-fit px-5 border border-[#aaaaaa] shrink-0 whitespace-nowrap"
+              >
+                <p className="text-[#999999] text-[11px]">{t}</p>
+              </div>
+            ))}
+          </div>
+        )}
         <button
           onClick={toggleExpanded}
-          className={`hover:cursor-pointer transition-all duration-300 ${
-            expanded ? "" : "absolute left-8"
+          className={`hover:cursor-pointer transition-all duration-300  ${
+            expanded ? "" : ""
           }`}
           aria-label={expanded ? "Collapse tags" : "Expand tags"}
         >

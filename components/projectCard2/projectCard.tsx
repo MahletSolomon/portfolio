@@ -19,7 +19,10 @@ const ProjectCard2: React.FC<Project> = ({ image, description, title, tags }) =>
   }
 
   return (
-    <div className="w-[623px] h-[380px] grid grid-rows-[auto_1fr_auto] space-y-6  border border[#AEAEAE] hover:cursor-pointer hover:shadow-md">
+    <div 
+    className="w-[623px] h-[380px] grid grid-rows-[auto_1fr_auto] space-y-6  border border[#AEAEAE] hover:cursor-pointer hover:shadow-md"
+    onClick={openProject}
+    >
       <div className="w-full h-24">
         <Image src={image} alt="imge" className="h-full object-cover" />
       </div>
